@@ -1,0 +1,4 @@
+#Wed Sep 27 17:07:30 EDT 2023
+base.0=D\:\\Users\\Daniil\\CISC 4900\\PharmaBuddy\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
