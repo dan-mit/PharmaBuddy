@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
               selectedIndex = index;
             });
           },
-          tabBackgroundColor: Colors.grey,
+          padding: EdgeInsets.all(16),
+          tabBackgroundColor: Color.fromARGB(50, 158, 158, 158),
           gap: 8,
           textSize: 7,
           tabs: const [
