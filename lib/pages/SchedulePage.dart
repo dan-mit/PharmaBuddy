@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmabuddy/main.dart';
+import 'package:pharmabuddy/models/drug.dart';
 
 class SchedulePage extends StatefulWidget {
   @override
@@ -46,7 +47,18 @@ class _SchedulePageState extends State<SchedulePage> {
           ElevatedButton(
             child: Text('Submit'),
             onPressed: () {
-              scheduleNotification();
+              Drug drug = Drug(
+                name: drugController.text,
+                dosage: dosageController.text,
+                times: drugTimes
+                    .where((time) => time != null)
+                    .cast<TimeOfDay>()
+                    .toList(), // to handle null values passed into the druglist
+                days: selectedDays,
+              );
+              scheduleNotification(drug);
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Drug Successfully Scheduled')));
             },
           ),
         ],
@@ -93,12 +105,16 @@ class _TimePickerState extends State<TimePicker> {
   }
 }
 
-class WeekdaySelector extends StatelessWidget {
+class WeekdaySelector extends StatefulWidget {
   final List<bool> selectedDays;
 
   WeekdaySelector({required this.selectedDays});
 
   @override
+  _WeekdaySelectorState createState() => _WeekdaySelectorState();
+}
+
+class _WeekdaySelectorState extends State<WeekdaySelector> {
   Widget build(BuildContext context) {
     return ToggleButtons(
       children: <Widget>[
@@ -108,10 +124,14 @@ class WeekdaySelector extends StatelessWidget {
         Text('T'),
         Text('F'),
         Text('S'),
-        Text('S'),
+        Text('Su'),
       ],
-      onPressed: (int index) {},
-      isSelected: selectedDays,
+      onPressed: (int index) {
+        setState(() {
+          widget.selectedDays[index] = !widget.selectedDays[index];
+        });
+      },
+      isSelected: widget.selectedDays,
     );
   }
 }

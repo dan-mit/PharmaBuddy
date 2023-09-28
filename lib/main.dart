@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'pages/HomePage.dart';
 import 'pages/DashboardPage.dart';
+import 'package:pharmabuddy/pages/SchedulePage.dart';
+import 'package:pharmabuddy/pages/LocatePage.dart';
+import 'package:pharmabuddy/pages/SearchPage.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import 'models/drug.dart'; // Ensure you have the Drug model in a file as previously instructed.
+import 'package:pharmabuddy/models/drug.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -29,7 +32,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Drug> drugsList = [];
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
