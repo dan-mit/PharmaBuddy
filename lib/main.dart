@@ -8,6 +8,8 @@ import 'package:pharmabuddy/pages/SearchPage.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:pharmabuddy/models/drug.dart';
+import 'package:provider/provider.dart';
+import 'package:pharmabuddy/models/drug_provider.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -24,7 +26,13 @@ void main() async {
 
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
-  runApp(const MyApp());
+  runApp(
+    //Initialize the provider
+    ChangeNotifierProvider(
+      create: (context) => DrugProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -39,6 +47,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//Main code for the scheduling of notifications
 Future<void> scheduleNotification(Drug drug) async {
   var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
     'drug_id',

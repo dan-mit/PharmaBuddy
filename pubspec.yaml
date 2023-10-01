@@ -13,6 +13,7 @@ dependencies:
   google_nav_bar: ^5.0.6
   flutter_local_notifications: 15.1.1
   timezone: 
+  provider: ^6.0.1
 
 dev_dependencies:
   flutter_test:

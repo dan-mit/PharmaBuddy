@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmabuddy/main.dart';
 import 'package:pharmabuddy/models/drug.dart';
+import 'package:pharmabuddy/models/drug_provider.dart';
+import 'package:provider/provider.dart';
 
 class SchedulePage extends StatefulWidget {
   @override
@@ -57,6 +59,7 @@ class _SchedulePageState extends State<SchedulePage> {
                 days: selectedDays,
               );
               scheduleNotification(drug);
+              Provider.of<DrugProvider>(context, listen: false).addDrug(drug);
               ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Drug Successfully Scheduled')));
             },
