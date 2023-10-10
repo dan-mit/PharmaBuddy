@@ -33,9 +33,26 @@ class _SchedulePageState extends State<SchedulePage> {
             decoration: InputDecoration(labelText: 'Dosage'),
           ),
           SizedBox(height: 10),
-          ...drugTimes.map((time) {
-            return TimePicker(time: time);
-          }).toList(),
+          Column(
+            children: drugTimes.map((time) {
+              int index = drugTimes.indexOf(time);
+              return Row(
+                children: [
+                  Expanded(
+                    child: TimePicker(time: time),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.delete),
+                    onPressed: () {
+                      setState(() {
+                        drugTimes.removeAt(index);
+                      });
+                    },
+                  ),
+                ],
+              );
+            }).toList(),
+          ),
           ElevatedButton(
             child: Text('Add Another Time +'),
             onPressed: () {
