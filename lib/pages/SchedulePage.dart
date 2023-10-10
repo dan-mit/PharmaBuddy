@@ -16,6 +16,12 @@ class _SchedulePageState extends State<SchedulePage> {
   List<TimeOfDay?> drugTimes = [null];
   List<bool> selectedDays = List.generate(7, (index) => false);
 
+  bool isValidInput() {
+    return drugController.text.isNotEmpty &&
+        dosageController.text.isNotEmpty &&
+        drugTimes.any((time) => time != null);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +39,8 @@ class _SchedulePageState extends State<SchedulePage> {
             decoration: InputDecoration(labelText: 'Dosage'),
           ),
           SizedBox(height: 10),
+          /* Drug time list changed to a Column as it allows for dynamic rendering
+          of the widget, as well as deletion of times*/
           Column(
             children: drugTimes.map((time) {
               int index = drugTimes.indexOf(time);
@@ -66,6 +74,14 @@ class _SchedulePageState extends State<SchedulePage> {
           ElevatedButton(
             child: Text('Submit'),
             onPressed: () {
+              if (!isValidInput()) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                      content: Text(
+                          'ERROR: Please provide valid drug name, dosage, and at least one time.')),
+                );
+                return;
+              }
               Drug drug = Drug(
                 name: drugController.text,
                 dosage: dosageController.text,
