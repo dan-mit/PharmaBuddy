@@ -19,8 +19,17 @@ class _SearchPageState extends State<SearchPage> {
       });
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
+        SnackBar(content: Text('$e')),
       );
+    }
+  }
+
+  String safeGetValue(Map<String, dynamic> map, String key, [int index = 0]) {
+    // Check if the key exists in the map and is non-null, otherwise return a default value
+    if (map[key] != null && map[key] is List && map[key].length > index) {
+      return map[key][index] ?? 'No Data Available';
+    } else {
+      return 'No Data Available';
     }
   }
 
@@ -51,10 +60,9 @@ class _SearchPageState extends State<SearchPage> {
                 var drug = searchResults[index];
                 return Card(
                   child: ListTile(
-                    title: Text(drug['openfda']['brand_name'][0] ??
-                        'No Name Available'),
-                    subtitle: Text(drug['indications_and_usage'][0] ??
-                        'No Description Available'),
+                    title:
+                        Text(safeGetValue(drug['openfda'] ?? {}, 'brand_name')),
+                    subtitle: Text(safeGetValue(drug, 'indications_and_usage')),
                   ),
                 );
               },
