@@ -22,6 +22,24 @@ class _SchedulePageState extends State<SchedulePage> {
         drugTimes.any((time) => time != null);
   }
 
+  void _updateDrugTime(int index, TimeOfDay newTime) {
+    setState(() {
+      drugTimes[index] = newTime;
+    });
+  }
+
+  void _removeDrugTime(int index) {
+    setState(() {
+      drugTimes.removeAt(index);
+    });
+  }
+
+  void _addNewDrugTime() {
+    setState(() {
+      drugTimes.add(null);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,32 +60,28 @@ class _SchedulePageState extends State<SchedulePage> {
           /* Drug time list changed to a Column as it allows for dynamic rendering
           of the widget, as well as deletion of times*/
           Column(
-            children: drugTimes.map((time) {
-              int index = drugTimes.indexOf(time);
+            children: List<Widget>.generate(drugTimes.length, (index) {
               return Row(
                 children: [
                   Expanded(
-                    child: TimePicker(time: time),
+                    child: TimePicker(
+                      time: drugTimes[index],
+                      onTimeSelected: (newTime) =>
+                          _updateDrugTime(index, newTime),
+                    ),
                   ),
-                  IconButton(
-                    icon: Icon(Icons.delete),
-                    onPressed: () {
-                      setState(() {
-                        drugTimes.removeAt(index);
-                      });
-                    },
-                  ),
+                  if (drugTimes.length > 1)
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () => _removeDrugTime(index),
+                    ),
                 ],
               );
             }).toList(),
           ),
           ElevatedButton(
             child: Text('Add Another Time +'),
-            onPressed: () {
-              setState(() {
-                drugTimes.add(null);
-              });
-            },
+            onPressed: _addNewDrugTime,
           ),
           SizedBox(height: 10),
           WeekdaySelector(selectedDays: selectedDays),
@@ -80,6 +94,7 @@ class _SchedulePageState extends State<SchedulePage> {
                       content: Text(
                           'ERROR: Please provide valid drug name, dosage, and at least one time.')),
                 );
+                print('Drug Times before submission: $drugTimes');
                 return;
               }
               Drug drug = Drug(
@@ -91,7 +106,7 @@ class _SchedulePageState extends State<SchedulePage> {
                     .toList(), // to handle null values passed into the druglist
                 days: selectedDays,
               );
-              scheduleNotification(drug);
+              //scheduleNotification(drug);
               Provider.of<DrugProvider>(context, listen: false).addDrug(drug);
               ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Drug Successfully Scheduled')));
@@ -105,8 +120,9 @@ class _SchedulePageState extends State<SchedulePage> {
 
 class TimePicker extends StatefulWidget {
   final TimeOfDay? time;
+  final Function(TimeOfDay) onTimeSelected;
 
-  TimePicker({this.time});
+  TimePicker({this.time, required this.onTimeSelected});
 
   @override
   _TimePickerState createState() => _TimePickerState();
@@ -131,10 +147,11 @@ class _TimePickerState extends State<TimePicker> {
           context: context,
           initialTime: selectedTime ?? TimeOfDay.now(),
         );
-        if (pickedTime != null && pickedTime != selectedTime) {
+        if (pickedTime != null) {
           setState(() {
             selectedTime = pickedTime;
           });
+          widget.onTimeSelected(pickedTime);
         }
       },
     );

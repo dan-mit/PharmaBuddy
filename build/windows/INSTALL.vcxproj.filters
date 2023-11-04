@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Users\Daniil\CISC 4900\PharmaBuddy\build\windows\CMakeFiles\9ba7da27e3f4926930e7ffd4905bd5a7\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{43CA6A1E-A71F-3B84-A9C5-F83191B3C411}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

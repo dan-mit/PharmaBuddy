@@ -1,0 +1,10 @@
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/CMakeFiles/INSTALL.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/CMakeFiles/ALL_BUILD.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/CMakeFiles/ZERO_CHECK.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/flutter/CMakeFiles/INSTALL.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/runner/CMakeFiles/pharmabuddy.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/runner/CMakeFiles/INSTALL.dir
+D:/Users/Daniil/CISC 4900/PharmaBuddy/build/windows/runner/CMakeFiles/ALL_BUILD.dir
