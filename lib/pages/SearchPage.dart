@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmabuddy/models/service.dart';
+import 'package:pharmabuddy/pages/DetailPage.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -59,10 +60,21 @@ class _SearchPageState extends State<SearchPage> {
               itemBuilder: (context, index) {
                 var drug = searchResults[index];
                 return Card(
-                  child: ListTile(
-                    title:
-                        Text(safeGetValue(drug['openfda'] ?? {}, 'brand_name')),
-                    subtitle: Text(safeGetValue(drug, 'indications_and_usage')),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(drugData: drug),
+                        ),
+                      );
+                    },
+                    child: ListTile(
+                      title: Text(
+                          safeGetValue(drug['openfda'] ?? {}, 'brand_name')),
+                      subtitle:
+                          Text(safeGetValue(drug, 'indications_and_usage')),
+                    ),
                   ),
                 );
               },
