@@ -106,7 +106,7 @@ class _SchedulePageState extends State<SchedulePage> {
                     .toList(), // to handle null values passed into the druglist
                 days: selectedDays,
               );
-              //scheduleNotification(drug);
+              scheduleNotification(drug);
               Provider.of<DrugProvider>(context, listen: false).addDrug(drug);
               ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Drug Successfully Scheduled')));

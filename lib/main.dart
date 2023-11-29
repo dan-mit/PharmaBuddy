@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
 }
 
 //Main code for the scheduling of notifications
-/* Future<void> scheduleNotification(Drug drug) async {
+Future<void> scheduleNotification(Drug drug) async {
   var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
     'drug_id',
     'drug_notifications',
@@ -86,4 +86,4 @@ class MyApp extends StatelessWidget {
       }
     }
   }
-} */
+}
