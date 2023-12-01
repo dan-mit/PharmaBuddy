@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
 }
 
 //Main code for the scheduling of notifications
-Future<void> scheduleWeeklyNotification(Drug drug) async {
+Future<void> scheduleNotification(Drug drug) async {
   var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
     'drug_id',
     'drug_notifications',
@@ -70,35 +70,43 @@ Future<void> scheduleWeeklyNotification(Drug drug) async {
   var platformChannelSpecifics =
       NotificationDetails(android: androidPlatformChannelSpecifics);
 
+  final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
   for (int i = 0; i < drug.times.length; i++) {
     TimeOfDay time = drug.times[i];
     for (int j = 0; j < drug.days.length; j++) {
       if (drug.days[j]) {
-        final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-        var scheduledDate = tz.TZDateTime(
+        int dayDifference = j + 1 - now.weekday;
+
+        tz.TZDateTime scheduledDate = tz.TZDateTime(
             tz.local, now.year, now.month, now.day, time.hour, time.minute);
-        scheduledDate =
-            scheduledDate.add(Duration(days: (j - now.weekday + 7) % 7));
 
-        if (scheduledDate.isBefore(now)) {
-          scheduledDate = scheduledDate.add(const Duration(days: 7));
+        // Adjust for same day notification if the time is later than current time
+        if (dayDifference < 0 ||
+            (dayDifference == 0 &&
+                (now.hour > time.hour ||
+                    (now.hour == time.hour && now.minute >= time.minute)))) {
+          // Schedule for the next week if the time has passed today or if the day is earlier in the week
+          scheduledDate = scheduledDate.add(Duration(days: dayDifference));
+        } else if (dayDifference > 0) {
+          // Schedule for later in the current week
+          scheduledDate = scheduledDate.add(Duration(days: 7 + dayDifference));
         }
-        print("Scheduling notification for ${drug.name} at $scheduledDate");
-        print("Now: $now, Scheduled Date: $scheduledDate, Weekday Index: $j");
 
-        // Schedule the first notification
+        // Schedule the notification
         await flutterLocalNotificationsPlugin.zonedSchedule(
           i * 7 + j, // Unique ID for each notification
           drug.name, // Title
           'It\'s time to take ${drug.dosage} of ${drug.name}', // Body
-          scheduledDate, // First scheduled date
+          scheduledDate, // Scheduled date
           platformChannelSpecifics,
-          androidAllowWhileIdle: true,
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime,
+          androidAllowWhileIdle: true,
           matchDateTimeComponents: DateTimeComponents
-              .dayOfWeekAndTime, // This will match the day of the week and time
+              .dayOfWeekAndTime, // Recurring weekly on the same day and time
         );
+
+        print("Notification scheduled for ${drug.name} at $scheduledDate");
       }
     }
   }
