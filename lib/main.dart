@@ -10,12 +10,22 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:pharmabuddy/models/drug.dart';
 import 'package:provider/provider.dart';
 import 'package:pharmabuddy/models/drug_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
+//RunTime Permission request function for alarms
+Future<void> requestExactAlarmPermission() async {
+  var status = await Permission.scheduleExactAlarm.status;
+  if (!status.isGranted) {
+    await Permission.scheduleExactAlarm.request();
+  }
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //Request permision for exact alarms
+  await requestExactAlarmPermission();
   tz.initializeTimeZones();
 
   const AndroidInitializationSettings initializationSettingsAndroid =
@@ -48,7 +58,7 @@ class MyApp extends StatelessWidget {
 }
 
 //Main code for the scheduling of notifications
-Future<void> scheduleNotification(Drug drug) async {
+Future<void> scheduleWeeklyNotification(Drug drug) async {
   var androidPlatformChannelSpecifics = const AndroidNotificationDetails(
     'drug_id',
     'drug_notifications',
@@ -65,23 +75,29 @@ Future<void> scheduleNotification(Drug drug) async {
     for (int j = 0; j < drug.days.length; j++) {
       if (drug.days[j]) {
         final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
-        final tz.TZDateTime scheduledDate = tz.TZDateTime(
-            tz.local,
-            now.year,
-            now.month,
-            now.day + (j - now.weekday + 7) % 7,
-            time.hour,
-            time.minute);
+        var scheduledDate = tz.TZDateTime(
+            tz.local, now.year, now.month, now.day, time.hour, time.minute);
+        scheduledDate =
+            scheduledDate.add(Duration(days: (j - now.weekday + 7) % 7));
 
+        if (scheduledDate.isBefore(now)) {
+          scheduledDate = scheduledDate.add(const Duration(days: 7));
+        }
+        print("Scheduling notification for ${drug.name} at $scheduledDate");
+        print("Now: $now, Scheduled Date: $scheduledDate, Weekday Index: $j");
+
+        // Schedule the first notification
         await flutterLocalNotificationsPlugin.zonedSchedule(
-          i * 7 + j, // id
-          drug.name, // title
-          'It\'s time to take ${drug.dosage} of ${drug.name}', // body
-          scheduledDate, // scheduledDate
-          platformChannelSpecifics, // notificationDetails
+          i * 7 + j, // Unique ID for each notification
+          drug.name, // Title
+          'It\'s time to take ${drug.dosage} of ${drug.name}', // Body
+          scheduledDate, // First scheduled date
+          platformChannelSpecifics,
+          androidAllowWhileIdle: true,
           uiLocalNotificationDateInterpretation:
               UILocalNotificationDateInterpretation.absoluteTime,
-          androidScheduleMode: AndroidScheduleMode.exact,
+          matchDateTimeComponents: DateTimeComponents
+              .dayOfWeekAndTime, // This will match the day of the week and time
         );
       }
     }
