@@ -1,0 +1,10 @@
+^D:\USERS\DANIIL\CISC 4900\PHARMABUDDY\BUILD\WINDOWS\CMAKEFILES\9BA7DA27E3F4926930E7FFD4905BD5A7\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

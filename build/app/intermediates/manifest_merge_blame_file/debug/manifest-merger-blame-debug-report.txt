@@ -15,18 +15,18 @@
 15    <uses-permission android:name="android.permission.INTERNET" />
 15-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\debug\AndroidManifest.xml:6:5-66
 15-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\debug\AndroidManifest.xml:6:22-64
-16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-16-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
-16-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
-17    <uses-permission android:name="android.permission.VIBRATE" />
-17-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-66
-17-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-63
-18    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-18-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-81
-18-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-78
-19    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-19-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:12:5-79
-19-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:12:22-76
+16    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+16-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:2:5-78
+16-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:2:22-76
+17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+17-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
+17-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
+18    <uses-permission android:name="android.permission.VIBRATE" />
+18-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-66
+18-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-63
+19    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+19-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-81
+19-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:11:22-78
 20    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 20-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-77
 20-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-74
