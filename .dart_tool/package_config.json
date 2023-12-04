@@ -38,6 +38,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "csslib",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/csslib-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "dbus",
       "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.8",
       "packageUri": "lib/",
@@ -86,16 +92,70 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.17",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///D:/Users/Daniil/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///D:/Users/Daniil/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "google_maps",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps-6.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "google_maps_flutter",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter-2.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "google_maps_flutter_android",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_android-2.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "google_maps_flutter_ios",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_ios-2.3.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "google_maps_flutter_platform_interface",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_platform_interface-2.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "google_maps_flutter_web",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_maps_flutter_web-0.5.4+2",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "google_nav_bar",
       "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/google_nav_bar-5.0.6",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "html",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/html-0.15.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "http",
@@ -106,6 +166,18 @@
     {
       "name": "http_parser",
       "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "js_wrapping",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/js_wrapping-0.7.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -194,6 +266,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "sanitize_html",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/sanitize_html-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///D:/Users/Daniil/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -214,6 +292,12 @@
     {
       "name": "stream_channel",
       "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/stream_channel-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "stream_transform",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/stream_transform-2.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -278,7 +362,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-12-01T02:36:13.648797Z",
+  "generated": "2023-12-02T12:18:03.859933Z",
   "generator": "pub",
   "generatorVersion": "3.1.2"
 }

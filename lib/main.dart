@@ -76,7 +76,7 @@ Future<void> scheduleNotification(Drug drug) async {
     for (int j = 0; j < drug.days.length; j++) {
       if (drug.days[j]) {
         int dayDifference = j + 1 - now.weekday;
-
+        int notificationID = i * 7 + j;
         tz.TZDateTime scheduledDate = tz.TZDateTime(
             tz.local, now.year, now.month, now.day, time.hour, time.minute);
 
@@ -94,7 +94,7 @@ Future<void> scheduleNotification(Drug drug) async {
 
         // Schedule the notification
         await flutterLocalNotificationsPlugin.zonedSchedule(
-          i * 7 + j, // Unique ID for each notification
+          notificationID, // Unique ID for each notification
           drug.name, // Title
           'It\'s time to take ${drug.dosage} of ${drug.name}', // Body
           scheduledDate, // Scheduled date
@@ -110,4 +110,25 @@ Future<void> scheduleNotification(Drug drug) async {
       }
     }
   }
+}
+
+Future<void> showImmediateNotification(String title, String body) async {
+  const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+    'immediate_channel_id', // Unique ID for the notification channel
+    'Immediate Notifications', // Name for the notification channel
+    channelDescription: 'Immediate notifications for drug reminders',
+    importance: Importance.max,
+    priority: Priority.high,
+  );
+
+  const NotificationDetails notificationDetails =
+      NotificationDetails(android: androidDetails);
+
+  await flutterLocalNotificationsPlugin.show(
+    0,
+    title, // Notification title
+    body, // Notification body
+    notificationDetails,
+    payload: 'Custom Payload', // Optional payload
+  );
 }

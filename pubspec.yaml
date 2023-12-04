@@ -16,7 +16,7 @@ dependencies:
   provider: ^6.0.1
   http: ^0.13.3
   permission_handler: 11.0.1
-
+  google_maps_flutter:
 dev_dependencies:
   flutter_test:
     sdk: flutter
