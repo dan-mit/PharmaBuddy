@@ -1,0 +1,1 @@
+ D:\\Users\\Daniil\\CISC\ 4900\\PharmaBuddy\\.dart_tool\\flutter_build\\ed007066c058f431f05cf10f01c8e202\\native_assets.yaml: 

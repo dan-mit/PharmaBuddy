@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'pages/HomePage.dart';
-import 'pages/DashboardPage.dart';
-import 'package:pharmabuddy/pages/SchedulePage.dart';
-import 'package:pharmabuddy/pages/LocatePage.dart';
-import 'package:pharmabuddy/pages/SearchPage.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:pharmabuddy/models/drug.dart';

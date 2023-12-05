@@ -9,10 +9,10 @@ class LocatePage extends StatefulWidget {
 
 class _LocatePageState extends State<LocatePage> {
   Location location = new Location();
-  bool _serviceEnabled;
-  PermissionStatus _permissionGranted;
-  LocationData _locationData;
-  GoogleMapController _mapController;
+  bool? _serviceEnabled;
+  PermissionStatus? _permissionGranted;
+  LocationData? _locationData;
+  GoogleMapController? _mapController;
   Set<Marker> _markers = {};
 
   @override
@@ -23,9 +23,9 @@ class _LocatePageState extends State<LocatePage> {
 
   void initializeLocation() async {
     _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
+    if (!_serviceEnabled!) {
       _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) {
+      if (!_serviceEnabled!) {
         return;
       }
     }
@@ -43,13 +43,13 @@ class _LocatePageState extends State<LocatePage> {
   }
 
   void loadPharmacies() {
-    // Example: Load pharmacies and update state
+    // Load pharmacies and update state
     // This should ideally be fetched from a database or API
     setState(() {
       _markers.add(
         Marker(
           markerId: MarkerId('pharmacy1'),
-          position: LatLng(_locationData.latitude, _locationData.longitude),
+          position: LatLng(_locationData!.latitude!, _locationData!.longitude!),
           infoWindow: InfoWindow(
               title: 'Pharmacy Name', snippet: 'Address, Phone Number'),
         ),
@@ -59,6 +59,13 @@ class _LocatePageState extends State<LocatePage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_locationData == null) {
+      return Scaffold(
+        appBar: AppBar(title: Text('Loading...')),
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Locate Pharmacies'),
@@ -68,7 +75,7 @@ class _LocatePageState extends State<LocatePage> {
           _mapController = controller;
         },
         initialCameraPosition: CameraPosition(
-          target: LatLng(_locationData.latitude, _locationData.longitude),
+          target: LatLng(_locationData!.latitude!, _locationData!.longitude!),
           zoom: 14.0,
         ),
         markers: _markers,

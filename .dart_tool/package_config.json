@@ -33,7 +33,7 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.17.2",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/collection-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -65,7 +65,7 @@
       "name": "flutter",
       "rootUri": "file:///D:/Users/Daniil/flutter/packages/flutter",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_lints",
@@ -101,13 +101,13 @@
       "name": "flutter_test",
       "rootUri": "file:///D:/Users/Daniil/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///D:/Users/Daniil/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "google_maps",
@@ -219,7 +219,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.9.1",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -293,7 +293,7 @@
       "name": "sky_engine",
       "rootUri": "file:///D:/Users/Daniil/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "source_span",
@@ -303,15 +303,15 @@
     },
     {
       "name": "stack_trace",
-      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.0",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/stack_trace-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "stream_channel",
-      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/stream_channel-2.1.1",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/stream_channel-2.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.19"
     },
     {
       "name": "stream_transform",
@@ -333,9 +333,9 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.6.0",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.6.1",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "timezone",
@@ -357,9 +357,9 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/web-0.1.4-beta",
+      "rootUri": "file:///C:/Users/Daniil/AppData/Local/Pub/Cache/hosted/pub.dev/web-0.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.2"
     },
     {
       "name": "xdg_directories",
@@ -380,7 +380,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-12-04T23:12:44.515426Z",
+  "generated": "2023-12-05T02:58:14.601979Z",
   "generator": "pub",
-  "generatorVersion": "3.1.2"
+  "generatorVersion": "3.2.2"
 }
