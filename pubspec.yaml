@@ -11,12 +11,13 @@ dependencies:
     sdk: flutter
 
   google_nav_bar: ^5.0.6
-  flutter_local_notifications: 15.1.1
+  flutter_local_notifications: ^16.2.0
   timezone: 
   provider: ^6.0.1
   http: ^0.13.3
-  permission_handler: 11.0.1
-  google_maps_flutter:
+  permission_handler: ^11.0.1
+  google_maps_flutter: ^2.5.0
+  location: ^5.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
