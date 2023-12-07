@@ -21,18 +21,18 @@
 17    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 17-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:3:5-78
 17-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:3:22-76
-18    <uses-permission android:name="android.permission.VIBRATE" />
-18-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
-18-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
-19    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-19-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
-19-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
-20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-20-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-81
-20-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-78
-21    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Include required permissions for Google Maps API to run. -->
-21-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-79
-21-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-76
+18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+18-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:4:5-78
+18-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:4:22-76
+19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+19-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:5:5-80
+19-->D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidManifest.xml:5:22-78
+20    <uses-permission android:name="android.permission.VIBRATE" />
+20-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-66
+20-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-63
+21    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Include required permissions for Google Maps API to run. -->
+21-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-77
+21-->[:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-74
 22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 22-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:5-79
 22-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:23:22-76
@@ -71,87 +71,88 @@
 43        android:debuggable="true"
 44        android:icon="@mipmap/ic_launcher"
 45        android:label="pharmabuddy" >
-46        <activity
-47            android:name="com.example.pharmabuddy.MainActivity"
-48            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-49            android:exported="true"
-50            android:hardwareAccelerated="true"
-51            android:launchMode="singleTop"
-52            android:theme="@style/LaunchTheme"
-53            android:windowSoftInputMode="adjustResize" >
-54
-55            <!--
-56                 Specifies an Android theme to apply to this Activity as soon as
-57                 the Android process has started. This theme is visible to the user
-58                 while the Flutter UI initializes. After that, this theme continues
-59                 to determine the Window background behind the Flutter UI.
-60            -->
-61            <meta-data
-62                android:name="io.flutter.embedding.android.NormalTheme"
-63                android:resource="@style/NormalTheme" />
-64            <meta-data
-65                android:name="com.google.android.geo.API_KEY"
-66                android:value="AIzaSyChywo2Fri_pQd_iuZzElRmkFGVwKc_C2c" />
-67
-68            <intent-filter>
-69                <action android:name="android.intent.action.MAIN" />
-70
-71                <category android:name="android.intent.category.LAUNCHER" />
-72            </intent-filter>
-73        </activity>
-74        <!--
-75             Don't delete the meta-data below.
-76             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-77        -->
-78        <meta-data
-79            android:name="flutterEmbedding"
-80            android:value="2" />
-81
-82        <service
-82-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-17:56
-83            android:name="com.lyokone.location.FlutterLocationService"
-83-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-71
-84            android:enabled="true"
-84-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-35
-85            android:exported="false"
-85-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
-86            android:foregroundServiceType="location" /> <!-- Needs to be explicitly declared on P+ -->
-86-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-53
-87        <uses-library
-87-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:39:9-41:40
-88            android:name="org.apache.http.legacy"
-88-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:40:13-50
-89            android:required="false" />
-89-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:41:13-37
-90
-91        <activity
-91-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
-92            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-92-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
-93            android:exported="false"
-93-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
-94            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-94-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
-95
-96        <meta-data
-96-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\4a80ee9fd8d09a6d44776f9cd2f90623\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
-97            android:name="com.google.android.gms.version"
-97-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\4a80ee9fd8d09a6d44776f9cd2f90623\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
-98            android:value="@integer/google_play_services_version" />
-98-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\4a80ee9fd8d09a6d44776f9cd2f90623\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
-99
-100        <uses-library
-100-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-101            android:name="androidx.window.extensions"
-101-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-102            android:required="false" />
-102-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-103        <uses-library
-103-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-104            android:name="androidx.window.sidecar"
-104-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-105            android:required="false" />
-105-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-106    </application>
-107
-108</manifest>
+46        <meta-data
+47            android:name="com.google.android.geo.API_KEY"
+48            android:value="AIzaSyChywo2Fri_pQd_iuZzElRmkFGVwKc_C2c" />
+49
+50        <activity
+51            android:name="com.example.pharmabuddy.MainActivity"
+52            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+53            android:exported="true"
+54            android:hardwareAccelerated="true"
+55            android:launchMode="singleTop"
+56            android:theme="@style/LaunchTheme"
+57            android:windowSoftInputMode="adjustResize" >
+58
+59            <!--
+60                 Specifies an Android theme to apply to this Activity as soon as
+61                 the Android process has started. This theme is visible to the user
+62                 while the Flutter UI initializes. After that, this theme continues
+63                 to determine the Window background behind the Flutter UI.
+64            -->
+65            <meta-data
+66                android:name="io.flutter.embedding.android.NormalTheme"
+67                android:resource="@style/NormalTheme" />
+68
+69            <intent-filter>
+70                <action android:name="android.intent.action.MAIN" />
+71
+72                <category android:name="android.intent.category.LAUNCHER" />
+73            </intent-filter>
+74        </activity>
+75        <!--
+76             Don't delete the meta-data below.
+77             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+78        -->
+79        <meta-data
+80            android:name="flutterEmbedding"
+81            android:value="2" />
+82
+83        <service
+83-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:13:9-17:56
+84            android:name="com.lyokone.location.FlutterLocationService"
+84-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-71
+85            android:enabled="true"
+85-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-35
+86            android:exported="false"
+86-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-37
+87            android:foregroundServiceType="location" /> <!-- Needs to be explicitly declared on P+ -->
+87-->[:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:17:13-53
+88        <uses-library
+88-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:39:9-41:40
+89            android:name="org.apache.http.legacy"
+89-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:40:13-50
+90            android:required="false" />
+90-->[com.google.android.gms:play-services-maps:18.2.0] C:\Users\Daniil\.gradle\caches\transforms-3\64829ba65b05948d559721367eb1e9c5\transformed\jetified-play-services-maps-18.2.0\AndroidManifest.xml:41:13-37
+91
+92        <activity
+92-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+93            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+93-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+94            android:exported="false"
+94-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+95            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+95-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\5fe0ebbe77ac2f965c744e827de9fb8b\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+96
+97        <meta-data
+97-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\4a80ee9fd8d09a6d44776f9cd2f90623\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+98            android:name="com.google.android.gms.version"
+98-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\4a80ee9fd8d09a6d44776f9cd2f90623\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+99            android:value="@integer/google_play_services_version" />
+99-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\4a80ee9fd8d09a6d44776f9cd2f90623\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+100
+101        <uses-library
+101-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+102            android:name="androidx.window.extensions"
+102-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+103            android:required="false" />
+103-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+104        <uses-library
+104-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+105            android:name="androidx.window.sidecar"
+105-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+106            android:required="false" />
+106-->[androidx.window:window:1.0.0-beta04] C:\Users\Daniil\.gradle\caches\transforms-3\8b91368fc987e97788ac32b381eff1c9\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+107    </application>
+108
+109</manifest>
