@@ -19,6 +19,7 @@ dependencies:
   google_maps_flutter: ^2.5.0
   location: ^5.0.0
   flutter_plugin_android_lifecycle:
+  geocoding: 
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geocoding/geocoding.dart' as geocoding;
 
 class LocatePage extends StatefulWidget {
   @override
@@ -81,5 +82,24 @@ class _LocatePageState extends State<LocatePage> {
         markers: _markers,
       ),
     );
+  }
+
+  Future<void> _searchAddress(String address) async {
+    try {
+      List<geocoding.Location> locations =
+          await geocoding.locationFromAddress(address);
+      if (locations.isNotEmpty) {
+        final result = locations.first;
+        _goToLocation(result.latitude, result.longitude);
+      }
+    } on Exception catch (e) {
+      print('Failed to find location: $e');
+    }
+  }
+
+  void _goToLocation(double lat, double lng) {
+    _mapController?.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(target: LatLng(lat, lng), zoom: 14),
+    ));
   }
 }
