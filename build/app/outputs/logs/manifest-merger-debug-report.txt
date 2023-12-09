@@ -32,6 +32,7 @@ MERGED from D:\Users\Daniil\CISC 4900\PharmaBuddy\android\app\src\main\AndroidMa
 MERGED from [:permission_handler_android] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\permission_handler_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:google_maps_flutter_android] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_plugin_android_lifecycle] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
+MERGED from [:geocoding_android] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\geocoding_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-12:12
 MERGED from [:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-20:12
 MERGED from [androidx.media:media:1.1.0] C:\Users\Daniil\.gradle\caches\transforms-3\667538a5e6c38752febb223af7bdbfe3\transformed\media-1.1.0\AndroidManifest.xml:17:1-24:12
@@ -106,6 +107,8 @@ MERGED from [:google_maps_flutter_android] D:\Users\Daniil\CISC 4900\PharmaBuddy
 MERGED from [:google_maps_flutter_android] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\google_maps_flutter_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_plugin_android_lifecycle\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geocoding_android] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\geocoding_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:geocoding_android] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\geocoding_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_local_notifications] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\flutter_local_notifications\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:location] D:\Users\Daniil\CISC 4900\PharmaBuddy\build\location\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41

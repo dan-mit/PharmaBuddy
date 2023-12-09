@@ -70,6 +70,16 @@ class _LocatePageState extends State<LocatePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Locate Pharmacies'),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                String? address = await showSearchDialog(context);
+                if (address != null && address.isNotEmpty) {
+                  _searchAddress(address);
+                }
+              },
+              icon: Icon(Icons.search))
+        ],
       ),
       body: GoogleMap(
         onMapCreated: (GoogleMapController controller) {
@@ -101,5 +111,32 @@ class _LocatePageState extends State<LocatePage> {
     _mapController?.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(target: LatLng(lat, lng), zoom: 14),
     ));
+  }
+
+  Future<String?> showSearchDialog(BuildContext context) async {
+    String? userInput;
+
+    return showDialog<String>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Enter Address or Zip Code'),
+          content: TextField(
+            onChanged: (value) {
+              userInput = value;
+            },
+            decoration: const InputDecoration(hintText: "Search here..."),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Search'),
+              onPressed: () {
+                Navigator.of(context).pop(userInput);
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }
