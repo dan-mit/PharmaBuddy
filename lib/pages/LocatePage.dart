@@ -58,9 +58,9 @@ class _LocatePageState extends State<LocatePage> {
           for (var place in result.results) {
             _markers.add(
               Marker(
-                markerId: MarkerId(place.id),
+                markerId: MarkerId(place.id ?? 'default_id'),
                 position: LatLng(
-                    place.geometry.location.lat, place.geometry.location.lng),
+                    place.geometry!.location.lat, place.geometry!.location.lng),
                 infoWindow: InfoWindow(
                   title: place.name,
                   snippet: place.vicinity,
