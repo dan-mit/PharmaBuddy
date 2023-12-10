@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
-import 'package:google_maps_webservice/places.dart' as gmaps;
+import 'package:pharmabuddy/models/pharmacyLocate.dart';
 
 class LocatePage extends StatefulWidget {
   @override
@@ -16,12 +16,13 @@ class _LocatePageState extends State<LocatePage> {
   LocationData? _locationData;
   GoogleMapController? _mapController;
   Set<Marker> _markers = {};
-  final gmaps.GoogleMapsPlaces places = gmaps.GoogleMapsPlaces(apiKey: "");
 
   @override
   void initState() {
     super.initState();
-    initializeLocation();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      initializeLocation();
+    });
   }
 
   void initializeLocation() async {
@@ -47,28 +48,26 @@ class _LocatePageState extends State<LocatePage> {
 
   void loadPharmacies() async {
     if (_locationData != null) {
-      final location = gmaps.Location(
-          lat: _locationData!.latitude!, lng: _locationData!.longitude!);
-      final result =
-          await places.searchNearbyWithRadius(location, 1000, type: "pharmacy");
-
-      if (result.status == "OK") {
+      try {
+        final pharmacies = await fetchPharmacies(
+            _locationData!.latitude!, _locationData!.longitude!);
         setState(() {
           _markers.clear();
-          for (var place in result.results) {
+          for (var pharmacy in pharmacies) {
             _markers.add(
               Marker(
-                markerId: MarkerId(place.id ?? 'default_id'),
-                position: LatLng(
-                    place.geometry!.location.lat, place.geometry!.location.lng),
+                markerId: MarkerId(pharmacy.name),
+                position: LatLng(pharmacy.lat, pharmacy.lng),
                 infoWindow: InfoWindow(
-                  title: place.name,
-                  snippet: place.vicinity,
+                  title: pharmacy.name,
+                  snippet: pharmacy.address,
                 ),
               ),
             );
           }
         });
+      } catch (e) {
+        print('Error fetching pharmacies: $e');
       }
     }
   }
