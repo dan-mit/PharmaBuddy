@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
+import 'package:google_maps_webservice/places.dart' as gmaps;
 
 class LocatePage extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class _LocatePageState extends State<LocatePage> {
   LocationData? _locationData;
   GoogleMapController? _mapController;
   Set<Marker> _markers = {};
+  final gmaps.GoogleMapsPlaces places = gmaps.GoogleMapsPlaces(apiKey: "");
 
   @override
   void initState() {
@@ -43,19 +45,32 @@ class _LocatePageState extends State<LocatePage> {
     loadPharmacies(); // Load pharmacies and place markers on the map
   }
 
-  void loadPharmacies() {
-    // Load pharmacies and update state
-    // This should ideally be fetched from a database or API
-    setState(() {
-      _markers.add(
-        Marker(
-          markerId: MarkerId('pharmacy1'),
-          position: LatLng(_locationData!.latitude!, _locationData!.longitude!),
-          infoWindow: InfoWindow(
-              title: 'Pharmacy Name', snippet: 'Address, Phone Number'),
-        ),
-      );
-    });
+  void loadPharmacies() async {
+    if (_locationData != null) {
+      final location = gmaps.Location(
+          lat: _locationData!.latitude!, lng: _locationData!.longitude!);
+      final result =
+          await places.searchNearbyWithRadius(location, 1000, type: "pharmacy");
+
+      if (result.status == "OK") {
+        setState(() {
+          _markers.clear();
+          for (var place in result.results) {
+            _markers.add(
+              Marker(
+                markerId: MarkerId(place.id),
+                position: LatLng(
+                    place.geometry.location.lat, place.geometry.location.lng),
+                infoWindow: InfoWindow(
+                  title: place.name,
+                  snippet: place.vicinity,
+                ),
+              ),
+            );
+          }
+        });
+      }
+    }
   }
 
   @override
