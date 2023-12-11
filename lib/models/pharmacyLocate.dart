@@ -23,12 +23,14 @@ Future<List<Place>> fetchPharmacies(double latitude, double longitude) async {
 class Place {
   final String name;
   final String address;
+  final String phoneNumber;
   final double lat;
   final double lng;
 
   Place(
       {required this.name,
       required this.address,
+      required this.phoneNumber,
       required this.lat,
       required this.lng});
 
@@ -37,6 +39,8 @@ class Place {
       name: json['name'],
       address: json['vicinity'],
       lat: json['geometry']['location']['lat'],
+      phoneNumber:
+          json['international_phone_number'] ?? 'Phone Number Not Available',
       lng: json['geometry']['location']['lng'],
     );
   }
