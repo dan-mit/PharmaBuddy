@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<List<Place>> fetchPharmacies(double latitude, double longitude) async {
-  final apiKey = '';
+  final apiKey = 'AIzaSyChywo2Fri_pQd_iuZzElRmkFGVwKc_C2c';
   final response = await http.get(
     Uri.parse(
         'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=$latitude,$longitude&radius=5000&type=pharmacy&key=$apiKey'),

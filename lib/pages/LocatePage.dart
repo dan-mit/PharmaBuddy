@@ -60,7 +60,8 @@ class _LocatePageState extends State<LocatePage> {
                 position: LatLng(pharmacy.lat, pharmacy.lng),
                 infoWindow: InfoWindow(
                   title: pharmacy.name,
-                  snippet: pharmacy.address,
+                  snippet:
+                      '${pharmacy.address}\nPhone: ${pharmacy.phoneNumber}',
                 ),
               ),
             );
@@ -151,22 +152,33 @@ class _LocatePageState extends State<LocatePage> {
   Future<String?> showSearchDialog(BuildContext context) async {
     String? userInput;
 
+    bool isValidZipCode(String? input) {
+      final zipCodePattern =
+          RegExp(r'^\d{5}$'); // Regex pattern for a 5-digit zip code
+      return input != null && zipCodePattern.hasMatch(input);
+    }
+
     return showDialog<String>(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Enter Address or Zip Code'),
+          title: const Text('Enter zip code to find pharmacies in the area'),
           content: TextField(
             onChanged: (value) {
               userInput = value;
             },
-            decoration: const InputDecoration(hintText: "Search here..."),
+            decoration: const InputDecoration(hintText: "Zip Code"),
+            keyboardType: TextInputType.number,
           ),
           actions: <Widget>[
             TextButton(
               child: const Text('Search'),
               onPressed: () {
-                Navigator.of(context).pop(userInput);
+                if (isValidZipCode(userInput)) {
+                  Navigator.of(context).pop(userInput);
+                } else {
+                  Navigator.of(context).pop();
+                }
               },
             ),
           ],

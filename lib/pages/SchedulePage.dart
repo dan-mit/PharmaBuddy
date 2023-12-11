@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pharmabuddy/main.dart';
+import 'package:pharmabuddy/models/notification_manager.dart';
 import 'package:pharmabuddy/models/drug.dart';
 import 'package:pharmabuddy/models/drug_provider.dart';
 import 'package:provider/provider.dart';
 
 class SchedulePage extends StatefulWidget {
+  final NotificationManager notificationManager;
+
+  SchedulePage({Key? key, required this.notificationManager}) : super(key: key);
+
   @override
   _SchedulePageState createState() => _SchedulePageState();
 }
@@ -106,10 +110,11 @@ class _SchedulePageState extends State<SchedulePage> {
                     .toList(), // to handle null values passed into the druglist
                 days: selectedDays,
               );
-              scheduleNotification(drug);
+              widget.notificationManager.scheduleNotification(drug);
               Provider.of<DrugProvider>(context, listen: false).addDrug(drug);
               ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Drug Successfully Scheduled')));
+                SnackBar(content: Text('Drug Successfully Scheduled')),
+              );
             },
           ),
         ],

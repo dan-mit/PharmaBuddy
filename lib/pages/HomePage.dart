@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:pharmabuddy/models/notification_manager.dart';
 import 'package:pharmabuddy/pages/DashboardPage.dart';
 import 'package:pharmabuddy/pages/LocatePage.dart';
 import 'package:pharmabuddy/pages/Schedulepage.dart';
 import 'package:pharmabuddy/pages/SearchPage.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final NotificationManager notificationManager;
+
+  const HomePage({Key? key, required this.notificationManager})
+      : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,13 +18,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0; //Default index for page switching
+  late List<Widget> pages;
 
-  List<Widget> pages = [
-    DashboardPage(),
-    SearchPage(),
-    SchedulePage(),
-    LocatePage(),
-  ];
+  @override
+  void initState() {
+    super.initState();
+    pages = [
+      DashboardPage(),
+      SearchPage(),
+      // Pass notificationManager to SchedulePage
+      SchedulePage(notificationManager: widget.notificationManager),
+      LocatePage(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

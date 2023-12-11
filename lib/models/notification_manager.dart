@@ -24,15 +24,16 @@ class NotificationManager {
     var platformChannelSpecifics =
         NotificationDetails(android: androidPlatformChannelSpecifics);
 
-    final tz.TZDateTime now = tz.TZDateTime.now(tz.local);
+    final tz.Location newYorkTimeZone = tz.getLocation('America/New_York');
+    final tz.TZDateTime now = tz.TZDateTime.now(newYorkTimeZone);
     for (int i = 0; i < drug.times.length; i++) {
       TimeOfDay time = drug.times[i];
       for (int j = 0; j < drug.days.length; j++) {
         if (drug.days[j]) {
           int dayDifference = j + 1 - now.weekday;
           int notificationID = _nextNotificationId;
-          tz.TZDateTime scheduledDate = tz.TZDateTime(
-              tz.local, now.year, now.month, now.day, time.hour, time.minute);
+          tz.TZDateTime scheduledDate = tz.TZDateTime(newYorkTimeZone, now.year,
+              now.month, now.day, time.hour, time.minute);
 
           // Adjust for same day notification if the time is later than current time
           if (dayDifference < 0 ||
