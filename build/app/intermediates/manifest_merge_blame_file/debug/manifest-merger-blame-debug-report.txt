@@ -73,7 +73,7 @@
 45        android:label="pharmabuddy" >
 46        <meta-data
 47            android:name="com.google.android.geo.API_KEY"
-48            android:value="AIzaSyChywo2Fri_pQd_iuZzElRmkFGVwKc_C2c" />
+48            android:value="" />
 49
 50        <activity
 51            android:name="com.example.pharmabuddy.MainActivity"

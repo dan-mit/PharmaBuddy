@@ -121,10 +121,31 @@ class _LocatePageState extends State<LocatePage> {
     }
   }
 
-  void _goToLocation(double lat, double lng) {
+  Future<void> _goToLocation(double lat, double lng) async {
     _mapController?.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(target: LatLng(lat, lng), zoom: 14),
     ));
+    try {
+      final pharmacies = await fetchPharmacies(lat, lng);
+      setState(() {
+        _markers.clear();
+        for (var pharmacy in pharmacies) {
+          _markers.add(
+            Marker(
+              markerId: MarkerId(pharmacy.name),
+              position: LatLng(pharmacy.lat, pharmacy.lng),
+              infoWindow: InfoWindow(
+                title: pharmacy.name,
+                snippet: pharmacy.address,
+              ),
+            ),
+          );
+        }
+      });
+    } catch (e) {
+      // Handle errors here
+      print('Error fetching pharmacies: $e');
+    }
   }
 
   Future<String?> showSearchDialog(BuildContext context) async {
