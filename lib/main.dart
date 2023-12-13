@@ -29,7 +29,7 @@ void main() async {
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('ic_launcher');
 
-  final InitializationSettings initializationSettings =
+  const InitializationSettings initializationSettings =
       InitializationSettings(android: initializationSettingsAndroid);
 
   await flutterLocalNotificationsPlugin.initialize(initializationSettings);
@@ -55,6 +55,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Arial',
+        textTheme: TextTheme(
+          titleLarge:
+              TextStyle(color: Colors.white, fontSize: 20), // AppBar titles
+          bodyMedium: TextStyle(color: Colors.black87), // Regular body text
+        ),
+        appBarTheme: AppBarTheme(
+          color: Colors.green, // AppBar color
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.green,
+          textTheme: ButtonTextTheme.primary,
+        ),
+      ),
       home: HomePage(notificationManager: notificationManager),
     );
   }

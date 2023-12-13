@@ -84,8 +84,16 @@ class _SchedulePageState extends State<SchedulePage> {
             }).toList(),
           ),
           ElevatedButton(
-            child: Text('Add Another Time +'),
+            child: Text('Add Another Time +',
+                style: TextStyle(color: Colors.black)),
             onPressed: _addNewDrugTime,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.lightGreen,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            ),
           ),
           SizedBox(height: 10),
           WeekdaySelector(selectedDays: selectedDays),
@@ -116,6 +124,13 @@ class _SchedulePageState extends State<SchedulePage> {
                 SnackBar(content: Text('Drug Successfully Scheduled')),
               );
             },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.lightGreen,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            ),
           ),
         ],
       ),
@@ -179,7 +194,7 @@ class _WeekdaySelectorState extends State<WeekdaySelector> {
         Text('M'),
         Text('T'),
         Text('W'),
-        Text('T'),
+        Text('Th'),
         Text('F'),
         Text('S'),
         Text('Su'),

@@ -6,19 +6,27 @@ import 'package:pharmabuddy/models/drug.dart';
 class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //create the lsit display of drugs, this will be put into database when made
     var drugList = Provider.of<DrugProvider>(context).drugList;
     return Scaffold(
-        appBar: AppBar(title: Text('My Dashboard')),
-        body: drugList.isEmpty
-            ? Center(child: Text('No Drugs Scheduled'))
-            : ListView.builder(
-                itemCount: drugList.length,
-                itemBuilder: (context, index) {
-                  Drug drug = drugList[index];
-                  return ListTile(
+      appBar: AppBar(title: Text('My Dashboard')),
+      body: drugList.isEmpty
+          ? Center(child: Text('No Drugs Scheduled'))
+          : ListView.builder(
+              itemCount: drugList.length,
+              itemBuilder: (context, index) {
+                Drug drug = drugList[index];
+                return Card(
+                  elevation: 2,
+                  margin: EdgeInsets.all(4),
+                  child: ListTile(
                     title: Text(drug.name),
-                    subtitle: Text('Dosage: ${drug.dosage}'),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Dosage: ${drug.dosage}'),
+                        Text('Days: ${getWeekdaysFromBooleans(drug.days)}'),
+                      ],
+                    ),
                     trailing: IconButton(
                       icon: Icon(Icons.close),
                       onPressed: () {
@@ -27,7 +35,22 @@ class DashboardPage extends StatelessWidget {
                         drugProvider.removeDrug(drugList[index]);
                       },
                     ),
-                  );
-                }));
+                  ),
+                );
+              },
+            ),
+    );
   }
+}
+
+String getWeekdaysFromBooleans(List<bool> days) {
+  List<String> dayNames = ['M', 'T', 'W', 'Th', 'F', 'S', 'S'];
+
+  Iterable<String> selectedDays = days
+      .asMap()
+      .entries
+      .where((entry) => entry.value)
+      .map((entry) => dayNames[entry.key]);
+
+  return selectedDays.join(', ');
 }

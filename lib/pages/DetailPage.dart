@@ -13,6 +13,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final String brandName = safeAccess(drugData['openfda']?['brand_name']);
     final String description = safeAccess(drugData['indications_and_usage']);
     final String patientInformation =
@@ -28,25 +29,44 @@ class DetailPage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(8.0),
         children: <Widget>[
-          ListTile(
-            title: const Text('Description'),
-            subtitle: Text(description),
+          Card(
+            child: ListTile(
+              title: Text('Description', style: theme.textTheme.titleMedium),
+              subtitle: Text(description),
+              leading: Icon(Icons.description, color: theme.primaryColor),
+            ),
           ),
-          ListTile(
-            title: const Text('Patient Information'),
-            subtitle: Text(patientInformation),
+          Card(
+            child: ListTile(
+              title: Text('Patient Information',
+                  style: theme.textTheme.titleMedium),
+              subtitle: Text(patientInformation),
+              leading: Icon(Icons.person, color: theme.primaryColor),
+            ),
           ),
-          ListTile(
-            title: const Text('Warnings'),
-            subtitle: Text(warnings),
+          Card(
+            child: ListTile(
+              title: Text('Warnings', style: theme.textTheme.titleMedium),
+              subtitle: Text(warnings),
+              leading: Icon(Icons.warning, color: theme.primaryColor),
+            ),
           ),
-          ListTile(
-            title: const Text('Uses'),
-            subtitle: Text(uses),
+          Card(
+            child: ListTile(
+              title: Text('Uses', style: theme.textTheme.titleMedium),
+              subtitle: Text(uses),
+              leading:
+                  Icon(Icons.question_mark_rounded, color: theme.primaryColor),
+            ),
           ),
-          ListTile(
-            title: const Text('Controlled Medication'),
-            subtitle: Text(isControlledSubstance ? 'Yes' : 'No'),
+          Card(
+            child: ListTile(
+              title: Text('Controlled Substance?',
+                  style: theme.textTheme.titleMedium),
+              subtitle: Text(isControlledSubstance ? 'Yes' : 'No'),
+              leading:
+                  Icon(Icons.local_police_rounded, color: theme.primaryColor),
+            ),
           ),
         ],
       ),
