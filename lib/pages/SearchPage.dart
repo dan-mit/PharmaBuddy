@@ -18,11 +18,7 @@ class _SearchPageState extends State<SearchPage> {
       setState(() {
         searchResults = results;
       });
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('$e')),
-      );
-    }
+    } catch (e) {}
   }
 
   String safeGetValue(Map<String, dynamic> map, String key, [int index = 0]) {
